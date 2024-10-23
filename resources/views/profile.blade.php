@@ -26,24 +26,4 @@
             </div>
         </div>
     </div>
-
-    <img src="{{ $user->profile_picture ? Storage::disk('s3')->url($user->profile_picture) : asset('default-avatar.png') }}" alt="Profile Picture" width="150" />
-
-    <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
-        @csrf
-        @method('PATCH')
-    
-        <!-- Profile Picture -->
-        <div class="mt-4">
-            <label for="profile_picture">Profile Picture</label>
-            <input type="file" id="profile_picture" name="profile_picture" accept="image/*" />
-        </div>
-    
-        <!-- Other profile fields -->
-    
-        <div class="mt-4">
-            <button type="submit">Save</button>
-        </div>
-    </form>
-    
 </x-app-layout>
